@@ -2,13 +2,6 @@ import { NextResponse } from "next/server";
 import { dbConnect } from "@/lib/connectDB";
 import CartModule from "@/models/cart";
 
-export async function GET(req) {
-  await dbConnect();
-  const data = await CartModule.find();
-  //   return NextResponse.json({ msg: "Product get request" }, { status: 200 });
-  return NextResponse.json(data, { status: 200 });
-}
-
 export async function POST(req) {
   await dbConnect();
 

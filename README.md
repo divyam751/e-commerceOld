@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CART
 
-## Getting Started
+- GET
+- - userId : users=> \_id
+- - token => Authorization : Bearer <token> (inside header)
 
-First, run the development server:
+=================================
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# FLOW
+
+=================================
+
+# Signup
+
+```json
+{
+  "name": "Admin",
+  "email": "admin@gmail.com",
+  "password": "admin@123"
+}
+// got userId => 65eae2b50fc06ca35e4dbae6
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Login
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "admin@123"
+}
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+//  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwOTg5MjQ3MCwiZXhwIjoxNzA5ODk2MDcwfQ.py2erZhMtBfNOP1a8NuAq6Pk2ZgtRhLSJ0dYXYaJn5M",
+// "userId": "65eae2b50fc06ca35e4dbae6",
+```
 
-## Learn More
+# Cart Post
 
-To learn more about Next.js, take a look at the following resources:
+```json
+{
+  "userId": "user232",
+  "items": [
+    {
+      "brand": "Sample Brand 7",
+      "title": "Product 3214",
+      "price": 20.99,
+      "mrp": 25.99,
+      "description": "This is a sample product description 1.",
+      "category": "Electronics",
+      "image": ["image_url_1"],
+      "rating": {
+        "rate": 4.5,
+        "count": 10
+      },
+      "badge": "New",
+      "quantity": 1
+    }
+  ]
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Cart patch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```json
+{
+  "userId": "user232",
+  "itemId": "65ea865aed3cf8d72230d602",
+  "action": "DEC"
+}
+```

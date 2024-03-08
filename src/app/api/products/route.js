@@ -5,7 +5,6 @@ import { dbConnect } from "@/lib/connectDB";
 export async function GET(req) {
   dbConnect();
   const data = await ProductsModel.find();
-  //   return NextResponse.json({ msg: "Product get request" }, { status: 200 });
   return NextResponse.json({ data: data }, { status: 200 });
 }
 export async function POST(req) {
